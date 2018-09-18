@@ -10,21 +10,25 @@
 
     """
 
-#FASTAR
 
 
+#Upphafsstaða - í room1_1
 char_x, char_y = 1, 1
 path = ""
-
+valid_direction = 'n'
 
 #Rooms fall
+#compass byrjun
+north = "(N)orth"
+east = "(E)ast"
+south = "(S)outh"
+west = "(W)est"
+
 room1_1 = "(N)orth"; room1_2 = "(N)orth, (E)ast, (S)outh"; room1_3 = "(S)outh, (E)ast"
 room2_1 = "(N)orth"; room2_2 = "(W)est, (S)outh"; room2_3 = "(E)ast, (W)est"
 room3_1 = "(N)orth"; room3_2 = "(N)orth, (S)outh"; room3_3 = "(S)outh"
-#
-
 path = room1_1
-valid_direction = 'n'
+
 
 while 1:
     
