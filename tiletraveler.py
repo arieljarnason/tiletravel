@@ -24,30 +24,32 @@ east = "(E)ast"
 south = "(S)outh"
 west = "(W)est"
 
-room1_1 = "(N)orth"; room1_2 = "(N)orth, (E)ast, (S)outh"; room1_3 = "(S)outh, (E)ast"
-room2_1 = "(N)orth"; room2_2 = "(W)est, (S)outh"; room2_3 = "(E)ast, (W)est"
-room3_1 = "(N)orth"; room3_2 = "(N)orth, (S)outh"; room3_3 = "(S)outh"
+room1_1 = "(N)orth."; room1_2 = "(N)orth or (E)ast or (S)outh."; room1_3 = "(E)ast or (S)outh."
+room2_1 = "(N)orth."; room2_2 = "(S)outh or (W)est."; room2_3 = "(E)ast or (W)est."
+room3_1 = "(N)orth."; room3_2 = "(N)orth or (S)outh."; room3_3 = "(S)outh or (W)est."
 path = room1_1
-
+travel_pass = 1
 
 while 1:
-    
-    print("You can travel: " + path)
+    if travel_pass == 1:
+        print("You can travel: " + path)
+
     path = ''
     direction = input("Direction: ").lower()
-    
+    travel_pass = 1
 #dir mover(direction):
 
     if (direction == 'n') and ('n' in valid_direction):
-        char_y += 1
+        char_y += 1; 
     elif (direction == 's') and ('s' in valid_direction):
-        char_y -= 1
+        char_y -= 1; 
     elif (direction == 'e') and ('e' in valid_direction):
-        char_x += 1
+        char_x += 1; 
     elif (direction == 'w') and ('w' in valid_direction):
-        char_x -= 1
+        char_x -= 1; 
     else:
         print("Not a valid direction!")
+        travel_pass = 0
         # return char_x, char_y
 
 #dir veggir():
@@ -56,7 +58,7 @@ while 1:
     if char_x == 1 and char_y == 1: path = room1_1; valid_direction = 'n'
     elif char_x == 1 and char_y == 2: path = room1_2; valid_direction = 'nes'
     elif char_x == 1 and char_y == 3: path = room1_3; valid_direction = 'es'
-    elif char_x == 2 and char_y == 1: path = room2_1; valid_direction = 'ws'
+    elif char_x == 2 and char_y == 1: path = room2_1; valid_direction = 'n'
     elif char_x == 2 and char_y == 2: path = room2_2; valid_direction = 'ws'
     elif char_x == 2 and char_y == 3: path = room2_3; valid_direction = 'we'
     elif char_x == 3 and char_y == 1: path = room3_1; print("Victory!"); break
